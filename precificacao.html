@@ -63,12 +63,12 @@
 
         <div class="form-field">
             <label for="TaxaML">Taxa Fixa ML</label>
-            <input type="number" id="TaxaML" value="2">
+            <input type="number" id="TaxaML" value="2.00">
         </div>
 
         <div class="form-field">
             <label for="receberProduto">Custo para Receber Produto (Frete)</label>
-            <input type="number" id="receberProduto" value="12">
+            <input type="number" id="receberProduto" value="12.00">
         </div>
 
         <div class="form-field">
@@ -81,16 +81,20 @@
         </div>
     </div>
 </body>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
+
+
+
 
 <script>
 
         $(document).ready(function() {
 
-            function caculaCustoTotal () {
-
-            }
-
+            $('#valorVenda, #TaxaML, #receberProduto, #valorCompraProduto').mask('###0.00', {reverse: true});
 
             function sumValues() {
 
@@ -106,7 +110,7 @@
 
                 let lucroLiquidoPorcentagem = ((lucroLiquido * 100) / valorDeVenda).toFixed(2); ;
 
-                $('.retorno').html('<hr>' + 'Custo Total: R$' + custoTotal + '<br>Lucro Total: R$' + lucroLiquido + ' || ' + lucroLiquidoPorcentagem  + '%');
+                $('.retorno').html('<hr>' + 'Custo Total: R$' + custoTotal + '<hr>Lucro Total: R$' + lucroLiquido + '   |   ' + lucroLiquidoPorcentagem  + '%');
 
             }
 
